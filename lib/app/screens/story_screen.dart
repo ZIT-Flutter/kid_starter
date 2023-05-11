@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kid_starter/app/widgets/image_tile_card.dart';
+import 'package:kid_starter/app/widgets/tile_card.dart';
 
 import '../constant.dart';
+import '../controllers/stories_controller.dart';
 import '../widgets/page_header.dart';
 
 class StoriesScreen extends StatefulWidget {
@@ -58,22 +61,19 @@ class _StoriesScreenState extends State<StoriesScreen> {
           ),
           SliverGrid(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
+              crossAxisCount: 2,
               crossAxisSpacing: 20.0,
             ),
             delegate: SliverChildBuilderDelegate(
-              childCount: 1,
+              childCount: storyList.length,
               (context, index) {
                 return Padding(
                   padding: index % 2 == 0
                       ? const EdgeInsets.only(bottom: 20, left: 20)
                       : const EdgeInsets.only(bottom: 20, right: 20),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Coming soon...',
-                      style: kSubTextStyle.copyWith(fontSize: 24),
-                    ),
+                  child: ImageTileCard(
+                    imagePath: storyList[index].imageLocation,
+                    onTap: () {},
                   ),
                 );
               },

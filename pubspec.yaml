@@ -68,12 +68,12 @@ flutter:
     - assets/audio/intro/
     - assets/audio/screen_transition/
     - assets/audio/alphabet_en/
-    - aseets/audio/bangla/vowelsBn/
     - assets/audio/color/
     - assets/audio/numeric_en/
     - assets/audio/shapes/
     - assets/images/
     - assets/
+    - assets/images/stories/
 
 
 
@@ -100,6 +100,12 @@ flutter:
     - family: CharuChandan3D
       fonts:
         - asset: assets/fonts/CharuChandan3D-Regular.ttf
+
+    - family: AshaLota
+      fonts:
+        - asset: assets/fonts/AshaLota.ttf
+
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
