@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kid_starter/app/controllers/sequence_images_controller.dart';
+import 'package:kid_starter/app/screens/sequence_initial_screen.dart';
 import 'package:kid_starter/app/widgets/image_tile_card.dart';
 import 'package:kid_starter/app/widgets/tile_card.dart';
 
@@ -73,7 +75,12 @@ class _StoriesScreenState extends State<StoriesScreen> {
                       : const EdgeInsets.only(bottom: 20, right: 20),
                   child: ImageTileCard(
                     imagePath: storyList[index].imageLocation,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SequenceInitialScreen(imageLocations: seqImageList,)));
+                    },
                   ),
                 );
               },
