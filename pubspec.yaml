@@ -75,6 +75,7 @@ flutter:
     - assets/
     - assets/images/stories/
     - assets/images/sequences/
+    - assets/images/app_images/
 
 
 

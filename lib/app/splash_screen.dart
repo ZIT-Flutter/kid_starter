@@ -24,7 +24,8 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _introAudio() async {
     try {
-      await _audioPlayer.setAsset('assets/audio/intro/mystical-wind-chimes.mp3');
+      await _audioPlayer
+          .setAsset('assets/audio/intro/mystical-wind-chimes.mp3');
       _audioPlayer.setVolume(2.0);
       _audioPlayer.play();
     } catch (e) {
@@ -129,7 +130,7 @@ class _SplashScreenState extends State<SplashScreen>
                     ),
                     child: Stack(
                       children: [
-                        Image.asset('assets/images/rocket.png'),
+                        Image.asset('assets/images/app_images/icon_munni.png'),
                         AnimatedBuilder(
                           animation: scaleAnimation,
                           builder: (c, child) => Transform.scale(

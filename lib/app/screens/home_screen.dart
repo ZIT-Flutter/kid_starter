@@ -40,7 +40,6 @@ class HomeScreen extends StatelessWidget {
             seconderyColor: Colors.purple,
             bornoList: benjonBornoList,
           )),
-
       CategoryCard(
         isBangla: true,
         title: '১ ২ ৩',
@@ -53,8 +52,6 @@ class HomeScreen extends StatelessWidget {
           bornoList: bnNumberList,
         ),
       ),
-
-
       CategoryCard(
         title: 'Colors',
         primaryColor: Colors.orangeAccent[100]!,
@@ -112,7 +109,8 @@ class HomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.grey[50],
           image: const DecorationImage(
-            image: AssetImage('assets/images/bg-bottom.png'),
+            image:
+                AssetImage('assets/images/app_images/monni_starter_bottom.png'),
             alignment: Alignment.bottomCenter,
           ),
         ),
@@ -124,7 +122,7 @@ class HomeScreen extends StatelessWidget {
               backgroundColor: Colors.grey[50],
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  'assets/images/bg-top.png',
+                  'assets/images/app_images/tasnia_starter_top.png',
                   fit: BoxFit.cover,
                   alignment: Alignment.topCenter,
                 ),
