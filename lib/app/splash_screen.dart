@@ -129,7 +129,7 @@ class _SplashScreenState extends State<SplashScreen>
                     ),
                     child: Stack(
                       children: [
-                        Image.asset('assets/images/rocket.png'),
+                        Image.asset('assets/images/app_images/icon_munni.png'),
                         AnimatedBuilder(
                           animation: scaleAnimation,
                           builder: (c, child) => Transform.scale(

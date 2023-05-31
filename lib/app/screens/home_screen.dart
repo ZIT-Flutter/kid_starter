@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kid_starter/app/controllers/alphabet_bn_controller.dart';
 import 'package:kid_starter/app/screens/bangla_borno_screen.dart';
 
@@ -11,8 +12,25 @@ import 'numeric_en_screen.dart';
 import 'shape_screen.dart';
 import 'story_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +130,7 @@ class HomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.grey[50],
           image: const DecorationImage(
-            image: AssetImage('assets/images/bg-bottom.png'),
+            image: AssetImage('assets/images/app_images/monni_starter_bottom.png'),
             alignment: Alignment.bottomCenter,
           ),
         ),
@@ -124,7 +142,7 @@ class HomeScreen extends StatelessWidget {
               backgroundColor: Colors.grey[50],
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  'assets/images/bg-top.png',
+                  'assets/images/app_images/tasnia_starter_top.png',
                   fit: BoxFit.cover,
                   alignment: Alignment.topCenter,
                 ),

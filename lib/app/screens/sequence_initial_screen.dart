@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kid_starter/app/screens/game_screen.dart';
+import 'package:kid_starter/app/widgets/sequence_card.dart';
 
 class SequenceInitialScreen extends StatefulWidget {
   List<String> imageLocations;
@@ -24,43 +26,32 @@ class _SequenceInitialScreenState extends State<SequenceInitialScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return SafeArea(
       child: Scaffold(
         body: Center(
           child: Container(
+            padding: EdgeInsets.only(left: 60, right: 60, top: 60, bottom: 20),
             width: double.maxFinite,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
-                      width: 100,
-                      height: 100,
-                      child: Image.asset(widget.imageLocations[0]),
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      child: Image.asset(widget.imageLocations[1]),
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      child: Image.asset(widget.imageLocations[2]),
-                    ),
-                    Container(
-                      width: 100,
-                      height: 100,
-                      child: Image.asset(widget.imageLocations[3]),
-                    ),
+                    SequenceCard(imageLocation: widget.imageLocations[0]),
+                    SequenceCard(imageLocation: widget.imageLocations[1]),
+                    SequenceCard(imageLocation: widget.imageLocations[2]),
+                    SequenceCard(imageLocation: widget.imageLocations[3]),
                   ],
                 ),
-                
-                ElevatedButton(onPressed: (){}, child: Text('Start Game'))
+
+                Spacer(),
+                ElevatedButton(onPressed: () {
+                  print('Going to Game Screen');
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) =>
+                          GameScreen(imagesList: widget.imageLocations)));
+                }, child: Text('Start Game'))
               ],
             ),
           ),

@@ -3,7 +3,6 @@ import 'package:kid_starter/app/controllers/sequence_images_controller.dart';
 import 'package:kid_starter/app/screens/sequence_initial_screen.dart';
 import 'package:kid_starter/app/widgets/image_tile_card.dart';
 import 'package:kid_starter/app/widgets/tile_card.dart';
-
 import '../constant.dart';
 import '../controllers/stories_controller.dart';
 import '../widgets/page_header.dart';
