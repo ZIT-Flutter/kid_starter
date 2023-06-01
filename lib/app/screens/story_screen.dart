@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:kid_starter/app/controllers/sequence_images_controller.dart';
 import 'package:kid_starter/app/screens/sequence_initial_screen.dart';
 import 'package:kid_starter/app/widgets/image_tile_card.dart';
@@ -32,9 +31,6 @@ class _StoriesScreenState extends State<StoriesScreen> {
   void initState() {
     super.initState();
     _scrollController.addListener(onScroll);
-    setState(() {
-      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    });
   }
 
   @override
@@ -82,9 +78,7 @@ class _StoriesScreenState extends State<StoriesScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SequenceInitialScreen(
-                                    imageLocations: seqImageList,
-                                  )));
+                              builder: (context) => SequenceInitialScreen(imageLocations: seqImageList,)));
                     },
                   ),
                 );
