@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kid_starter/app/screens/game_screen.dart';
+import 'package:kid_starter/app/screens/game_screen_test.dart';
 import 'package:kid_starter/app/widgets/sequence_card.dart';
 
 class SequenceInitialScreen extends StatefulWidget {
@@ -50,7 +51,7 @@ class _SequenceInitialScreenState extends State<SequenceInitialScreen> {
                   print('Going to Game Screen');
                   Navigator.push(context, MaterialPageRoute(
                       builder: (context) =>
-                          GameScreen(imagesList: widget.imageLocations)));
+                          GameScreenTest(imagesList: widget.imageLocations)));
                 }, child: Text('Start Game'))
               ],
             ),
