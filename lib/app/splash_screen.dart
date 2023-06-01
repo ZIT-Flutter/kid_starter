@@ -24,7 +24,8 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _introAudio() async {
     try {
-      await _audioPlayer.setAsset('assets/audio/intro/mystical-wind-chimes.mp3');
+      await _audioPlayer
+          .setAsset('assets/audio/intro/mystical-wind-chimes.mp3');
       _audioPlayer.setVolume(2.0);
       _audioPlayer.play();
     } catch (e) {
