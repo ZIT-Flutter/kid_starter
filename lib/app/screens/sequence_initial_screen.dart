@@ -31,6 +31,7 @@ class _SequenceInitialScreenState extends State<SequenceInitialScreen> {
       child: Scaffold(
         body: Center(
           child: Container(
+
             padding: EdgeInsets.only(left: 60, right: 60, top: 60, bottom: 20),
             width: double.maxFinite,
             child: Column(
@@ -51,7 +52,7 @@ class _SequenceInitialScreenState extends State<SequenceInitialScreen> {
                   print('Going to Game Screen');
                   Navigator.push(context, MaterialPageRoute(
                       builder: (context) =>
-                          GameScreenTest(imagesList: widget.imageLocations)));
+                          GameScreen(imagesList: widget.imageLocations)));
                 }, child: Text('Start Game'))
               ],
             ),

@@ -17,11 +17,13 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(left: 30, right:10),
+          padding: EdgeInsets.only(left: 30, right: 10),
           child: Column(
             children: [
-              Text('Game Screen', textScaleFactor: 1.5,),
-
+              Text(
+                'Game Screen',
+                textScaleFactor: 1.5,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -33,10 +35,16 @@ class _GameScreenState extends State<GameScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            SequenceCard(imageLocation: widget.imagesList[0]),
-                            SequenceCard(imageLocation: widget.imagesList[1]),
-                            SequenceCard(imageLocation: widget.imagesList[2]),
-                            SequenceCard(imageLocation: widget.imagesList[3]),
+                            for (var image in widget.imagesList)
+                              Container(
+                                margin: EdgeInsets.all(5),
+                                width: 120,
+                                child: Draggable(
+                                  child: SequenceCard(imageLocation: image),
+                                  feedback: SequenceCard(imageLocation: image),
+                                  childWhenDragging: Container(width: 140),
+                                ),
+                              )
                           ],
                         ),
                       ),
@@ -45,23 +53,29 @@ class _GameScreenState extends State<GameScreen> {
                         height: 150,
                         child: Row(
                           children: [
-                            SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
-                            SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
-                            SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
-                            SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
+                            for (int i = 0; i < 4; i++)
+                              Container(
+                                height: 150,
+                                width: 120,
+                                child: SequenceCard(
+                                    imageLocation:
+                                        'assets/images/sequences/blank_card.png'),
+                              )
                           ],
                         ),
                       ),
                     ],
                   ),
-
                   Container(
                     // width: 0,
-                    child: Text('Score:', textScaleFactor: 1.5, style: TextStyle(fontFamily: 'AdorshoLipi'),),
+                    child: Text(
+                      'Score:',
+                      textScaleFactor: 1.5,
+                      style: TextStyle(fontFamily: 'AdorshoLipi'),
+                    ),
                   )
                 ],
               )
-
             ],
           ),
         ),

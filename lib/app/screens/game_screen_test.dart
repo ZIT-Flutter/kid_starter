@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../widgets/sequence_card.dart';
@@ -12,8 +14,12 @@ class GameScreenTest extends StatefulWidget {
 }
 
 class _GameScreenTestState extends State<GameScreenTest> {
+
+
   @override
   Widget build(BuildContext context) {
+    Random random = Random();
+    widget.imagesList.shuffle(random);
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -29,26 +35,39 @@ class _GameScreenTestState extends State<GameScreenTest> {
                     children: [
                       Container(
                         padding: EdgeInsets.only(left: 50, right: 50),
-                        height: 150,
+                        // height: 150,
+
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            SequenceCard(imageLocation: widget.imagesList[0]),
-                            SequenceCard(imageLocation: widget.imagesList[1]),
-                            SequenceCard(imageLocation: widget.imagesList[2]),
-                            SequenceCard(imageLocation: widget.imagesList[3]),
+                            for(var image in widget.imagesList)
+
+                              Container(
+                                width: 120,
+                                child: Draggable(
+
+                                  childWhenDragging: Container(width: 140,),
+                                    feedback: SequenceCard(imageLocation: image),
+                                    child: SequenceCard(imageLocation: image)),
+                              ),
                           ],
                         ),
                       ),
                       Container(
                         padding: EdgeInsets.only(left: 50, right: 50),
-                        height: 150,
+                        // height: 120,
                         child: Row(
                           children: [
-                            SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
-                            SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
-                            SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
-                            SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
+                            for(int i=0; i<4; i++)
+                              Container(
+                                width: 120,
+                                  height: 150,
+                                  child: SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),),
+
+
+                            // SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
+                            // SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
+                            // SequenceCard(imageLocation: 'assets/images/sequences/blank_card.png'),
                           ],
                         ),
                       ),
@@ -57,7 +76,12 @@ class _GameScreenTestState extends State<GameScreenTest> {
 
                   Container(
                     // width: 0,
-                    child: Text('Score:', textScaleFactor: 1.5, style: TextStyle(fontFamily: 'AdorshoLipi'),),
+                    child: Column(
+                      children: const [
+                        Text('Score', textScaleFactor: 1.5, style: TextStyle(fontFamily: 'AdorshoLipi'),),
+                        Text('00', textScaleFactor: 1.5, style: TextStyle(fontFamily: 'AdorshoLipi'),),
+                      ],
+                    ),
                   )
                 ],
               )
